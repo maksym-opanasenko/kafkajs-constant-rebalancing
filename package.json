@@ -1,0 +1,18 @@
+{
+  "name": "kafkajs-constant-rebalancing",
+  "version": "1.0.0",
+  "description": "A repository that reproduces constant rebalancing when using kafkajs",
+  "main": "index.js",
+  "scripts": {
+    "start:default": "node ingex.js",
+    "start:patched": "node ingex.js"
+  },
+  "keywords": [
+    "kafkajs"
+  ],
+  "author": "maksym.opanasenko",
+  "license": "ISC",
+  "dependencies": {
+    "kafkajs": "^2.2.4"
+  }
+}
