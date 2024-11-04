@@ -20,14 +20,6 @@ class CustomKafkaConsumer {
 
 		const topics = [{ topic: this.kafkaConfig.topic }];
 
-		// The REBALANCING event is not emitted for some reason because of an issue with the library, but is emitted after
-		// the consumer is paused manually. Let's handle pausing here just in case;
-		consumer.on(consumer.events.REBALANCING, () => {
-			console.log('REBALANCING: Pausing consumer');
-			this.isRebalancing = true;
-			consumer.pause(topics);
-		});
-
 		consumer.on(consumer.events.GROUP_JOIN, () => {
 			if (this.isRebalancing) {
 				console.log('GROUP_JOIN: Resuming consumer');
